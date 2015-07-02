@@ -10,5 +10,11 @@
 		"expr_get":["area"],
 		"expr_out":["radius"],
 		"formula":""
+	},
+	{
+		"title":"Circumference of Circle",
+		"expr_get":["radius"],
+		"expr_out":["circumference"],
+		"formula":""
 	}
 ]
