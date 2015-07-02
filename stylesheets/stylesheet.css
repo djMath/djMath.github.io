@@ -47,13 +47,29 @@ section input{
 footer{
   position: fixed !important;
   bottom: 0;
+  right: 0;
+  padding-right: 15px;
+  display: inline-block;
 }
 footer p{
   color: #A9A9A9;
+  display: inline-block;
 }
 footer p a{
   color:#EEE;
   padding-left:5px;
+}
+footer ul{
+  display:block;
+  float:right;
+}
+footer ul li{
+  list-style:none;
+  display:inline-block;
+  padding-left:10px;
+}
+footer ul li a{
+  color:#EEE;
 }
 .container{
   width: 800px;
