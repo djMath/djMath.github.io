@@ -1,6 +1,6 @@
 var formulas  = [];
 var fieldLock = false; // denotes calculator state
-
+var checkboxLength = 0;
 $.getJSON( "database/formulas.json", function( data ) {  
   $.each( data, function( key, formula ) {
     formulas.push({value : formula.title , data : key , get : [ formula.expr_get ], out : [ formula.expr_out ]});
@@ -29,21 +29,40 @@ var load = {
 	},
 	formulaActionWindow : function(searchData,key){
 		$('.formulaActionWindow').fadeIn(150);
+		$('.formulaActionWindow').attr('formula',searchData);
+		$('.formulaActionWindow').attr('key',key);
 		$('.formulaActionWindow h2').html(searchData);
-		var __form = formulas[key];
-		var length = __form.get.length;
+		var __form = formulas[key].get[0];
+		var length = __form.length;
 		console.log(length);
-		var radioHTML = "";
+		var checkboxHTML = "";
+		checkboxLength = 0;
 		for (var i = 0; i < length; i++) {
-			radioHTML = "<input type='checkbox' name='getVal' value='" + __form.get[i] + "'>" + __form.get[i] + ""
+			checkboxLength++;
+			checkboxHTML += "<input type='checkbox' name='getVal' value='" + __form[i] + "'>" + __form[i] + ""
 		};
-		$('#haveData').html(radioHTML);
+		$('#haveData').html(checkboxHTML);
 	}
 };
+function minimumDataOK(key){
+	return true;
+}
+
+function getCheckedattrNames(){
+	return ["a","b","c"];
+}
 
 //Action for Checkbox 
 $('body').on('click','#haveData input',function(){
-	console.log($(this));
+	var key = $(this).closest("div.formulaActionWindow").attr('key');
+	if(minimumDataOK(key)){
+		var getValHTML = "<p> ";
+	for (var i = 0; i < getCheckedattrNames().length; i++) {
+		getValHTML += "Enter the " + getCheckedattrNames()[i] + "<input type='number' ><br/>";
+	};
+		$('.getDataWindow').html(getValHTML + " </p>");
+	}
+	
 });
 
 
