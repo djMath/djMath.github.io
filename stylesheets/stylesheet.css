@@ -88,3 +88,19 @@ footer ul li a{
   border: 6px solid #1790C5;
   transition : .27s all;
 }
+
+.formulaActionWindow{
+    width: 800px;  
+    height: 400px;
+    z-index: 9999;
+    background-color: #FFF;
+    position: absolute;
+    top: 20%;
+    transform: translateX(34%);
+    display: none;
+}
+.formulaActionWindow h2{
+    margin: 0;  
+    padding: 10px 20px;
+    background-color: #EEE;
+}
