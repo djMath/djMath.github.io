@@ -73,10 +73,6 @@ $("#searchString").keyup(function(){
 		if(!isNaN(search)&&search!=""){			
 			load.calculator();
 		}		
-	}else{
-		if(isNaN(search)){			
-			load.search();
-		}
 	}
 	if(search==""&&fieldLock == true){
 		load.search();
