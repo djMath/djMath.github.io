@@ -1,11 +1,14 @@
 body {
   box-sizing: border-box;
   color:#373737;
-  background: #212121;
+  background: linear-gradient(135deg, #EFEFEF 0%,#E8E7E7 100%);
   font-size: 16px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 header a {
   display: block;
@@ -24,15 +27,15 @@ header a {
 section h1 {
   margin-top: 150px;
   margin-bottom: 60px;
-  color: #fff;
+  color: #8BC34A;
   font-size: 42px;
   font-weight: 700;
-  text-shadow: #111 0px 0px 10px;
+  text-shadow: #FFFFFF 0px 0px 1px;
   text-align: center;
 }
 section h1 span{
   font-size: .8em;
-  color: #1FB8E5;
+  color: #00BCD4;
 }
 section input{
   width:80%;
@@ -44,25 +47,29 @@ section input{
   border-radius: 4px;
   border: 0;
   transition : .27s all;
+  box-shadow: #CECECE 0 0 4px;
 }
 footer{
   position: fixed !important;
   bottom: 0;
-  right: 0;
-  padding-right: 15px;
   display: inline-block;
+  background: #FFF;
+  width: 100%;
+  padding: 0px 0 0px 10px;
 }
 footer p{
   color: #A9A9A9;
   display: inline-block;
 }
 footer p a{
-  color:#EEE;
+  color: #3F51B5;
   padding-left:5px;
 }
 footer ul{
   display:block;
   float:right;
+  margin: 0;
+  padding: 16px 30px 10px 10px;
 }
 footer ul li{
   list-style:none;
@@ -70,7 +77,7 @@ footer ul li{
   padding-left:10px;
 }
 footer ul li a{
-  color:#EEE;
+  color: #2196F3;
 }
 .container{
   width: 800px;
@@ -90,7 +97,7 @@ footer ul li a{
 }
 
 .formulaActionWindow{
-    width: 800px;  
+    width: 800px;
     height: 400px;
     z-index: 9999;
     background-color: #FFF;
@@ -100,7 +107,7 @@ footer ul li a{
     display: none;
 }
 .formulaActionWindow h2{
-    margin: 0;  
+    margin: 0;
     padding: 10px 20px;
     background-color: #EEE;
 }
