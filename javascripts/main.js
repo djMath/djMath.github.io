@@ -1,81 +1,95 @@
 var formulas  = [];
 var fieldLock = false; // denotes calculator state
 var checkboxLength = 0;
-$.getJSON( "database/formulas.json", function( data ) {  
+
+/*
+ * Retrives data from the formlulas JSON File
+ * Formula contains
+ *     - value  :   Title
+ *     - key    :   Key / Index
+ *     - get    :   Required variables data
+ *     - out    :   Output details
+ * return (void)
+ */
+$.getJSON( "database/formulas.json", function( data ) {
   $.each( data, function( key, formula ) {
-    formulas.push({value : formula.title , data : key , get : [ formula.expr_get ], out : [ formula.expr_out ]});
-  });   
+    formulas.push({value : formula.title , key : key , get : [ formula.expr_get ], out : [ formula.expr_out ]});
+  });
 });
 
-
-$('.completeLoader').autocomplete({
+/*
+ * Triggers the auto complete for search
+ * return (void)
+ */
+$('.autocompleteLoader').autocomplete({
     lookup: formulas,
     onSelect: function (suggestion) {
-        console.log("Formula : " + suggestion.value + "Mapped @ " + suggestion.data);
-        load.formulaActionWindow(suggestion.value,suggestion.data);
+        console.log("Formula : " + suggestion.value + "Mapped @ " + suggestion.key);
+        load.formulaActionWindow(suggestion.value,suggestion.key);
     }
 });
 
+/*
+ * Loads different options / Load library
+ */
+
 var load = {
-	calculator : function(){		
+
+/*
+ * Initialize the calculator mode
+ * return (void)
+ */
+	calculator : function(){
 		fieldLock = true;
 		$("#searchString").addClass("calc");
 		console.log("Calculator Loaded");
 	},
+/*
+ * Initialize the search mode
+ * return (void)
+ */
 	search : function(){
 		fieldLock = false;
 		console.log("Search Loaded");
 		$("#searchString").removeClass("calc");
 	},
-	formulaActionWindow : function(searchData,key){
-		$('.formulaActionWindow').fadeIn(150);
-		$('.formulaActionWindow').attr('formula',searchData);
-		$('.formulaActionWindow').attr('key',key);
-		$('.formulaActionWindow h2').html(searchData);
-		var __form = formulas[key].get[0];
-		var length = __form.length;
-		console.log(length);
-		var checkboxHTML = "";
-		checkboxLength = 0;
-		for (var i = 0; i < length; i++) {
-			checkboxLength++;
-			checkboxHTML += "<input type='checkbox' name='getVal' value='" + __form[i] + "'>" + __form[i] + ""
+/*
+ * Opens formula data entry window
+ * return (void)
+ */
+	formulaActionWindow : function(formulaTitle,index){
+		$('.formulaActionWindow').fadeIn(100);
+		$('.formulaActionWindow').attr('formula',formulaTitle);
+		$('.formulaActionWindow').attr('index',index);
+		$('.formulaActionWindow h2').html(formulaTitle);
+		var formulaInputDetails = formulas[index].get[0];
+        console.log(formulaInputDetails);
+
+		var inputboxHTML = "";
+
+		for (var i = 0; i < formulaInputDetails.length; i++) {
+
+			inputboxHTML+= "<div class='input'><label for='"+ formulaInputDetails[i] +"'>  " + formulaInputDetails[i] + "</label><input type='number' name='"
+                        + formulaInputDetails[i] +"' value=''><div>";
 		};
-		$('#haveData').html(checkboxHTML);
+
+		$('#inputBoxHTML').html(inputboxHTML);
 	}
 };
-function minimumDataOK(key){
-	return true;
-}
 
-function getCheckedattrNames(){
-	return ["a","b","c"];
-}
-
-//Action for Checkbox 
-$('body').on('click','#haveData input',function(){
-	var key = $(this).closest("div.formulaActionWindow").attr('key');
-	if(minimumDataOK(key)){
-		var getValHTML = "<p> ";
-	for (var i = 0; i < getCheckedattrNames().length; i++) {
-		getValHTML += "Enter the " + getCheckedattrNames()[i] + "<input type='number' ><br/>";
-	};
-		$('.getDataWindow').html(getValHTML + " </p>");
-	}
-	
+/*
+ * Closes the window
+ *
+ */
+$('#closeIcon').click(function(){
+    $('.formulaActionWindow').fadeOut(100);
 });
 
+/* Event Listener for input datachange
+ * Finds the answer and update the output window
+ */
 
-//Search Initiator
-$("#searchString").keyup(function(){
-	var search = $(this).val();
-	if(fieldLock == false){
-		if(!isNaN(search)&&search!=""){			
-			load.calculator();
-		}		
-	}
-	if(search==""&&fieldLock == true){
-		load.search();
-	}
-
+$("body").on("input","#inputBoxHTML input",function(){
+    console.log('Input data changed!');
 });
+

@@ -14,12 +14,12 @@
 <body>
 
 <header>
-      <a href="https://github.com/djMath/djMath">View on GitHub</a>      
+      <a href="https://github.com/djMath/djMath">View on GitHub</a>
 </header>
 
 <section class="container">
     <h1>DjMath<span> - No Formulas for life</span></h1>
-    <input class="completeLoader" type="text" placeHolder="Search a formula" id="searchString">
+    <input class="autocompleteLoader" type="text" placeHolder="Search a formula" id="searchString">
 </section>
 
 <footer>
@@ -32,17 +32,20 @@
     </ul>
 </footer>
 <div class="formulaActionWindow" formula="" key="">
+    <span id="closeIcon">X</span>
   <h2></h2>
   <div class="formulaBody">
-      <span>I have </span>
-      <span id="haveData"></span>
-      <div class="getDataWindow"></div>
-  </div>  
-</div>   
+      <span>Enter the Input </span>
+      <section id="inputBoxHTML"></section>
+      <span>Output :  </span>
+      <section id="outputWindow"></section>
+  </div>
+</div>
 
   </body>
 </html>
 <script type="text/javascript" src="javascripts/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="javascripts/jquery.autocomplete.js"></script>
 <script type="text/javascript" src="javascripts/formulas.js"></script>
+<script type="text/javascript" src="javascripts/search.js"></script>
 <script type="text/javascript" src="javascripts/main.js"></script>

@@ -96,6 +96,8 @@ footer ul li a{
   transition : .27s all;
 }
 
+/* formulaActionWindow styles */
+
 .formulaActionWindow{
     width: 800px;
     height: 400px;
@@ -106,8 +108,45 @@ footer ul li a{
     transform: translateX(34%);
     display: none;
 }
+.formulaActionWindow #closeIcon{
+    display: block;
+    width: 35px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    font: 30px arial,sans-serif;
+    background: #FFF;
+    padding: 5px 0px 0 10px;
+    cursor: pointer;
+}
 .formulaActionWindow h2{
     margin: 0;
-    padding: 10px 20px;
-    background-color: #EEE;
+    padding: 5px 20px;
+    background-color: #03A9F4;
+    color: #FFF;
+}
+
+.formulaBody{
+  padding: 10px;
+}
+
+.formulaBody span{
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+}
+.formulaBody #inputBoxHTML{
+    margin: 10px 0 0 10px;
+}
+.formulaBody input{
+  width: 100px;
+  position: relative;
+  margin: 15px 0 0 20px;
+  display: inline-block;
+  height: 30px;
+  padding: 0px 0px 0 10px;
+ }
+
+.formulaBody input:focus{
+  box-shadow: #FF9800 0 0 5px
 }
