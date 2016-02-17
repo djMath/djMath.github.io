@@ -17,17 +17,7 @@ $.getJSON( "database/formulas.json", function( data ) {
   });
 });
 
-/*
- * Triggers the auto complete for search
- * return (void)
- */
-$('.autocompleteLoader').autocomplete({
-    lookup: formulas,
-    onSelect: function (suggestion) {
-        console.log("Formula : " + suggestion.value + "Mapped @ " + suggestion.key);
-        load.formulaActionWindow(suggestion.value,suggestion.key);
-    }
-});
+
 
 /*
  * Loads different options / Load library
@@ -75,6 +65,19 @@ var load = {
 
 		$('#inputBoxHTML').html(inputboxHTML);
 	}
+};
+
+
+var DJMath = {
+    hasMeetMinRequiredInput : function(){
+
+    },
+    computeOutput : function(){
+
+    },
+    getFormulaPair : function(){
+
+    }
 };
 
 /*
