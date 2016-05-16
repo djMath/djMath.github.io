@@ -3,7 +3,7 @@
 		"title":"Area of Circle",
 		"expr_get":["radius"],
 		"expr_out":["area"],
-		"formula":""
+		"formula":"2*3.14*_dj.radius"
 	},
 	{
 		"title":"Radius of Circle",
@@ -18,9 +18,9 @@
 		"formula":""
 	},
 	{
-		"title":"dummy",
+		"title":"add 3",
 		"expr_get":["a","b","c"],
-		"expr_out":["x","y","z"],
-		"formula":""
+		"expr_out":["sum"],
+		"formula":"_dj.a+_dj.b+_dj.c"
 	}
 ]

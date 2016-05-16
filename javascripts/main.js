@@ -1,6 +1,13 @@
 var formulas  = [];
 var fieldLock = false; // denotes calculator state
 var checkboxLength = 0;
+var _dj = {};
+
+var cTracker = {
+	formula : null,
+	formulaIndex : 0,
+	inputs : null
+};
 
 /*
  * Retrives data from the formlulas JSON File
@@ -13,7 +20,7 @@ var checkboxLength = 0;
  */
 $.getJSON( "database/formulas.json", function( data ) {
   $.each( data, function( key, formula ) {
-    formulas.push({value : formula.title , key : key , get : [ formula.expr_get ], out : [ formula.expr_out ]});
+    formulas.push({value : formula.title , key : key , get : [ formula.expr_get ], out : [ formula.expr_out ],formula : formula.formula });
   });
 });
 
@@ -64,19 +71,50 @@ var load = {
 		};
 
 		$('#inputBoxHTML').html(inputboxHTML);
+
+		cTracker.formulaIndex = index;
+		console.log("Formula index is " + cTracker.formulaIndex);
 	}
 };
 
 
 var DJMath = {
     hasMeetMinRequiredInput : function(){
-
+    	var requiredInputsLength = formulas[cTracker.formulaIndex].get[0].length;
+    	_dj = {};
+  		var value;
+    	for ( var i = 0 ; i < requiredInputsLength ; i++){
+    		value = $("#inputBoxHTML input")[i].value;
+    		//declare to _dj variable
+    		_dj[$("#inputBoxHTML input")[i].name] = Number(value);
+    		if(value == null || value == ""){
+    			return false;
+    		}
+    	}
+    	return true;
     },
     computeOutput : function(){
-
+    	if(this.hasMeetMinRequiredInput()){
+    		var formula = this.getFormula(this.getFormulaPair());
+    		console.log(formula);
+    		this.writeFormula(formula);
+    	}
     },
     getFormulaPair : function(){
+    	return 0;
+    },
+    getFormula : function(pair){
+    	return formulas[cTracker.formulaIndex].formula;
+    },
+    writeFormula : function(f){
+    	$("#djformula").remove();
+    	var htmlData = "<script id='djformula' type='text/javascript'> function djCompute() { var djOut = " + f + "; DJMath.output(djOut); } </script>";
+    	$("body").append(htmlData);
+    	djCompute();
 
+    },
+    output : function(o){
+    	$("#outputWindow").html("The " + formulas[cTracker.formulaIndex].out + " is : " + o );
     }
 };
 
@@ -94,5 +132,6 @@ $('#closeIcon').click(function(){
 
 $("body").on("input","#inputBoxHTML input",function(){
     console.log('Input data changed!');
+    DJMath.computeOutput();
 });
 
