@@ -84,8 +84,8 @@ footer ul li a{
   margin: 0 auto;
 }
 
-.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
-.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-suggestions {border: 1px solid #e2e0e0;background: #FFF;overflow: auto;border-top: none;}
+.autocomplete-suggestion {padding: 2px 5px;white-space: nowrap;overflow: hidden;border-bottom: 1px solid #e2e0e0;}
 .autocomplete-selected { background: #F0F0F0; cursor: pointer; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
 .autocomplete-group { padding: 2px 5px; }
@@ -103,10 +103,13 @@ footer ul li a{
     height: 400px;
     z-index: 9999;
     background-color: #FFF;
-    position: absolute;
+    position: fixed;
     top: 20%;
-    transform: translateX(34%);
+    transform: translateX(50%);
     display: none;
+    box-shadow: 1px 1px 8px #909090;
+    margin-right: 50%;
+    right: 0;
 }
 .formulaActionWindow #closeIcon{
     display: block;
@@ -115,9 +118,10 @@ footer ul li a{
     position: absolute;
     right: 0;
     font: 30px arial,sans-serif;
-    background: #FFF;
-    padding: 5px 0px 0 10px;
+    background: #FF9800;
+    padding: 6px 0px 0 10px;
     cursor: pointer;
+    color: #FFF;
 }
 .formulaActionWindow h2{
     margin: 0;
