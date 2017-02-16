@@ -55,6 +55,7 @@ var load = {
  * return (void)
  */
 	formulaActionWindow : function(formulaTitle,index){
+		$("#calculatorResult").fadeOut(100);
 		$('.formulaActionWindow').fadeIn(100);
 		$('.formulaActionWindow').attr('formula',formulaTitle);
 		$('.formulaActionWindow').attr('index',index);
@@ -100,6 +101,12 @@ var DJMath = {
     		this.writeFormula(formula);
     	}
     },
+	evaluateExpression: function(expr){
+		calculatorResult.value = "";
+		$("#calculatorResult").fadeIn(100);
+		calculatorResult.value = eval(expr);
+	
+	},
     getFormulaPair : function(){
     	return 0;
     },
@@ -138,5 +145,8 @@ $("body").on("input","#inputBoxHTML input",function(){
 $("body").keyup(function (e) {
     if (e.keyCode == 13 && fieldLock == true) {
         console.log("Evaluating the Expression " + searchString.value );
+	DJMath.evaluateExpression(searchString.value);
     }
 });
+
+
