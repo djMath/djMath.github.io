@@ -154,3 +154,13 @@ footer ul li a{
 .formulaBody input:focus{
   box-shadow: #FF9800 0 0 5px
 }
+.calculatorOut{
+  display:none;
+  width: 326px;
+  background:#FFF;
+  margin: 19px auto 0 auto;
+  font-size: 40px;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 1px 1px 0px #ccc;
+}
