@@ -7,18 +7,18 @@
 	},
 	{
 		"title":"Radius of Circle",
-		"expr_get":["area"],
+		"expr_get":["diameter"],
 		"expr_out":["radius"],
-		"formula":""
+		"formula":"_dj.diameter/2"
 	},
 	{
 		"title":"Circumference of Circle",
 		"expr_get":["radius"],
 		"expr_out":["circumference"],
-		"formula":""
+		"formula":"2*3.14*_dj.radius"
 	},
 	{
-		"title":"add 3",
+		"title":"Sum of 3 Numbers",
 		"expr_get":["a","b","c"],
 		"expr_out":["sum"],
 		"formula":"_dj.a+_dj.b+_dj.c"
