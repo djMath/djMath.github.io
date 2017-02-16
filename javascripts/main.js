@@ -135,3 +135,8 @@ $("body").on("input","#inputBoxHTML input",function(){
     DJMath.computeOutput();
 });
 
+$("body").keyup(function (e) {
+    if (e.keyCode == 13 && fieldLock == true) {
+        console.log("Evaluating the Expression " + searchString.value );
+    }
+});
