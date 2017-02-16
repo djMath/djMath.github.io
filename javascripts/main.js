@@ -102,9 +102,9 @@ var DJMath = {
     	}
     },
 	evaluateExpression: function(expr){
-		calculatorResult.value = "";
+		calculatorResult.innerHTML = "";
 		$("#calculatorResult").fadeIn(100);
-		calculatorResult.value = eval(expr);
+		calculatorResult.innerHTML = eval(expr);
 	
 	},
     getFormulaPair : function(){
