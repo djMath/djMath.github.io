@@ -50,34 +50,26 @@
 	{
 		
 		"title":"Area of a Trapezoid",
-		"expr_get":["base_1"],
-		"expr_get":["base_2"],
-		"expr_get":["height"],
-		"expr_out":["Area"],
+		"expr_get":["base_1","base_2","height"],
+	        "expr_out":["Area"],
 		"formula":"((base_1+base_2)/2)*height"		
 	},
 	{
 		
 		"title":"Perimeter of a Trapezoid",
-		"expr_get":["base_1"],
-		"expr_get":["base_2"],
-		"expr_get":["side_1"],
-		"expr_get":["side_2"],
+		"expr_get":["base_1","base_2","side_1","side_2"],
 		"expr_out":["Area"],
 		"formula":"base_1+base_2+side_1+side_2"		
 	},
 	{
 	 	"title":"Area of a Triangle",
-		"expr_get":["side"],
-		"expr_get":["height"],
+		"expr_get":["side","height"],
 		"expr_out":["Area"],
 		"formula":"_dj.side*_dj.height"
 	},
 	{
 		"title":"Perimeter of a Triangle",
-		"expr_get":["side_1"],
-		"expr_get":["side_2"],
-		"expr_get":["side_3"],
+		"expr_get":["side_1","side_2","side_3"],
 		"expr_out":["Perimeter"],
 		"formula":"_dj.side_1+_dj.side_2+_dj.side_3"
 	}
