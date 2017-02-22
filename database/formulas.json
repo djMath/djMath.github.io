@@ -52,14 +52,14 @@
 		"title":"Area of a Trapezoid",
 		"expr_get":["base_1","base_2","height"],
 	        "expr_out":["Area"],
-		"formula":"((base_1+base_2)/2)*height"		
+		"formula":"((_dj.base_1+_dj.base_2)/2)*_dj.height"		
 	},
 	{
 		
 		"title":"Perimeter of a Trapezoid",
 		"expr_get":["base_1","base_2","side_1","side_2"],
 		"expr_out":["Area"],
-		"formula":"base_1+base_2+side_1+side_2"		
+		"formula":"_dj.base_1+_dj.base_2+_dj.side_1+_dj.side_2"		
 	},
 	{
 	 	"title":"Area of a Triangle",
