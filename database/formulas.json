@@ -45,8 +45,7 @@
 		"title":"Perimeter of Square",
 		"expr_get":["side"],
 		"expr_out":["Area"],
-		"formula":"4*_dj.side"
-	},
-	
+		"formula":"4*_dj.side"		
+	}
 		
  ]
