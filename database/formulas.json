@@ -1,18 +1,18 @@
 [
 	{
-		"title":"Area of Circle",
+		"title":"Area of a Circle",
 		"expr_get":["radius"],
 		"expr_out":["area"],
 		"formula":"2*3.14*_dj.radius"
 	},
 	{
-		"title":"Radius of Circle",
+		"title":"Radius of a Circle",
 		"expr_get":["diameter"],
 		"expr_out":["radius"],
 		"formula":"_dj.diameter/2"
 	},
 	{
-		"title":"Circumference of Circle",
+		"title":"Circumference of a Circle",
 		"expr_get":["radius"],
 		"expr_out":["circumference"],
 		"formula":"2*3.14*_dj.radius"
@@ -24,7 +24,7 @@
 		"formula":"_dj.a+_dj.b+_dj.c"
 	},
 	{
-	        "title":"Area of Rectangle",
+	        "title":"Area of a Rectangle",
 		"expr_get":["length","width"],
 		"expr_out":["Area"],
 		"formula":"_dj.length*_dj.width"
@@ -36,16 +36,50 @@
 		"formula":"2*(_dj.length+_dj.width)"
 	},
 	{
-		"title":"Area of Square",
+		"title":"Area of a Square",
 		"expr_get":["side"],
 		"expr_out":["Area"],
 		"formula":"_dj.side*_dj.side"
 	},
 	{
-		"title":"Perimeter of Square",
+		"title":"Perimeter of a Square",
 		"expr_get":["side"],
 		"expr_out":["Area"],
 		"formula":"4*_dj.side"		
-	}
+	},
+	{
 		
+		"title":"Area of a Trapezoid",
+		"expr_get":["base_1"],
+		"expr_get":["base_2"],
+		"expr_get":["height"],
+		"expr_out":["Area"],
+		"formula":"((base_1+base_2)/2)*height"		
+	},
+	{
+		
+		"title":"Perimeter of a Trapezoid",
+		"expr_get":["base_1"],
+		"expr_get":["base_2"],
+		"expr_get":["side_1"],
+		"expr_get":["side_2"],
+		"expr_out":["Area"],
+		"formula":"base_1+base_2+side_1+side_2"		
+	},
+	{
+	 	"title":"Area of a Triangle",
+		"expr_get":["side"],
+		"expr_get":["height"],
+		"expr_out":["Area"],
+		"formula":"_dj.side*_dj.height"
+	},
+	{
+		"title":"Perimeter of a Triangle",
+		"expr_get":["side_1"],
+		"expr_get":["side_2"],
+		"expr_get":["side_3"],
+		"expr_out":["Perimeter"],
+		"formula":"_dj.side_1+_dj.side_2+_dj.side_3"
+	}
+
  ]
