@@ -22,5 +22,31 @@
 		"expr_get":["a","b","c"],
 		"expr_out":["sum"],
 		"formula":"_dj.a+_dj.b+_dj.c"
-	}
-]
+	},
+	{
+	        "title":"Area of Rectangle",
+		"expr_get":["length","width"],
+		"expr_out":["Area"],
+		"formula":"_dj.length*_dj.width"
+	},
+	{
+		"title":"perimeter of a Rectangle",
+		"expr_get":["length","width"],
+		"expr_out":["Perimeter"],
+		"formula":"2*(_dj.length+_dj.width)"
+	},
+	{
+		"title":"Area of Square",
+		"expr_get":["side"],
+		"expr_out":["Area"],
+		"formula":"_dj.side*_dj.side"
+	},
+	{
+		"title":"Perimeter of Square",
+		"expr_get":["side"],
+		"expr_out":["Area"],
+		"formula":"4*_dj.side"
+	},
+	{
+		
+ ]
